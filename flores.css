@@ -188,8 +188,25 @@ img {
 .fl-logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   shrink: 0;
+}
+
+.fl-logo-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fl-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .fl-logo-text {
@@ -200,15 +217,23 @@ img {
 
 .fl-brand-name {
   font-family: var(--fl-serif);
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700;
+  letter-spacing: 0.02em;
   color: var(--fl-text);
 }
 
+.fl-brand-name em {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--fl-pink);
+}
+
 .fl-brand-sub {
-  font-size: 10px;
+  font-size: 10.5px;
   color: var(--fl-muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
 }
 
 .btn-catalog {
