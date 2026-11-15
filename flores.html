@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Florencia — Flores con amor | Catálogo de Ramos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="flores.css">
+</head>
+<body>
+
+  <!-- =================================================================
+       1. BARRA SUPERIOR INFORMATIVA (TOP BAR)
+       ================================================================= -->
+  <div class="top-utility-bar">
+    <div class="fl-container top-utility-inner">
+      <div class="utility-left">
+        <span class="utility-item">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#e85382" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Av. Las Flores, 15
+        </span>
+        <span class="utility-item">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#e85382" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          Entrega 24/7
+        </span>
+      </div>
+
+      <div class="utility-right">
+        <nav class="utility-nav" aria-label="Navegación Superior">
+          <a href="index.html" class="back-events-link">← Volver a Eventos (Luna &amp; Confetti)</a>
+          <a href="#sobre-nosotros">Sobre nosotros</a>
+          <a href="#envio">Envío y pago</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+        <div class="utility-phone">
+          <a href="tel:+74951234567" class="phone-number">+7 (495) 123-45-67</a>
+          <span class="phone-hours">Todos los días de 8:00 a 22:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =================================================================
+       2. CABECERA PRINCIPAL (LOGO + BOTÓN CATÁLOGO + BUSCADOR + ACCIONES)
+       ================================================================= -->
+  <header class="fl-header">
+    <div class="fl-container fl-header-inner">
+      <!-- Logo Florencia -->
+      <a href="flores.html" class="fl-logo">
+        <div class="fl-logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="38" height="38" fill="none" stroke="#e85382" stroke-width="1.6">
+            <polygon points="20,2 35,11 35,29 20,38 5,29 5,11" fill="#fdf2f5"/>
+            <circle cx="20" cy="20" r="7"/>
+            <path d="M20 13 C16 13, 13 17, 15 21 C17 25, 23 25, 25 21 C27 17, 24 13, 20 13 Z"/>
+            <path d="M16 17 C18 15, 22 15, 24 17"/>
+          </svg>
+        </div>
+        <div class="fl-logo-text">
+          <span class="fl-brand-name">Florencia</span>
+          <span class="fl-brand-sub">flores con amor</span>
+        </div>
+      </a>
+
+      <!-- Botón Rosa Catálogo -->
+      <a href="#categorias" class="btn-catalog">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="14" y2="17"></line>
+        </svg>
+        <span>Catálogo</span>
+      </a>
+
+      <!-- Buscador Central -->
+      <form class="fl-search" role="search" action="#" method="get" onsubmit="return false;">
+        <input type="search" placeholder="Buscar ramos y flores..." aria-label="Buscar ramos y flores">
+        <button type="submit" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Acciones de Usuario (Perfil, Favoritos, Carrito) -->
+      <div class="fl-user-actions">
+        <a href="#perfil" class="user-action-item" aria-label="Mi cuenta">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+        <a href="#favoritos" class="user-action-item">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span>Favoritos</span>
+        </a>
+        <a href="#carrito" class="user-action-item">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span>Carrito</span>
+          <span class="cart-badge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =================================================================
+         3. BANNER HERO PRINCIPAL
+         ================================================================= -->
+    <section class="fl-container">
+      <div class="fl-hero-banner">
+        <div class="fl-hero-text">
+          <h1>
+            Regala emociones<br>
+            con flores frescas
+          </h1>
+          <p>
+            Ramos para cualquier ocasión<br>
+            con entrega a domicilio en toda la ciudad
+          </p>
+          <a href="#populares" class="btn-pink-primary">Elegir ramo</a>
+
+          <div class="hero-dots" aria-label="Indicadores de diapositiva">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+
+        <div class="fl-hero-image-slot">
+          <!-- ===============================================================
+               [IMAGEN #1 - BANNER HERO PRINCIPAL]
+               Coloca tu imagen en: assets/flores/hero-ramo.png
+               Tamaño recomendado: 650 x 450 px (PNG sin fondo o JPG)
+               =============================================================== -->
+          <img src="assets/flores/hero-ramo.png" alt="Ramo principal" class="slot-img" onerror="this.style.display='none';">
+          <div class="slot-guide">
+            <span class="slot-badge">IMAGEN #1 • HERO PRINCIPAL</span>
+            <code>assets/flores/hero-ramo.png</code>
+            <small>Recomendado: 650 × 450 px (PNG transparente o fondo rosa)</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         4. FRANJA DE 4 BENEFICIOS / GARANTÍAS
+         ================================================================= -->
+    <section class="fl-container">
+      <div class="fl-features-bar">
+        <div class="fl-feature-item">
+          <div class="fl-feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#e85382" stroke-width="1.6">
+              <rect x="1" y="3" width="15" height="13" rx="2"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <div class="fl-feature-info">
+            <h3>Entrega rápida</h3>
+            <p>Entrega desde 90 minutos en toda la ciudad</p>
+          </div>
+        </div>
+
+        <div class="fl-feature-item">
+          <div class="fl-feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#e85382" stroke-width="1.6">
+              <circle cx="12" cy="10" r="3"></circle>
+              <path d="M12 3a4 4 0 0 1 3 6.5A4 4 0 0 1 15 16a4 4 0 0 1-6 0 4 4 0 0 1 0-6.5A4 4 0 0 1 12 3z"></path>
+              <line x1="12" y1="16" x2="12" y2="22"></line>
+            </svg>
+          </div>
+          <div class="fl-feature-info">
+            <h3>Flores frescas</h3>
+            <p>Entregas todos los días directo de plantación</p>
+          </div>
+        </div>
+
+        <div class="fl-feature-item">
+          <div class="fl-feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#e85382" stroke-width="1.6">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <polyline points="9 12 11 14 15 10"></polyline>
+            </svg>
+          </div>
+          <div class="fl-feature-info">
+            <h3>Garantía de calidad</h3>
+            <p>7 días para cambio o devolución del ramo</p>
+          </div>
+        </div>
+
+        <div class="fl-feature-item">
+          <div class="fl-feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#e85382" stroke-width="1.6">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+          </div>
+          <div class="fl-feature-info">
+            <h3>Pago cómodo</h3>
+            <p>Online o en efectivo al momento de recibir</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         5. SECCIÓN: RAMOS POPULARES (5 COLUMNAS)
+         ================================================================= -->
+    <section class="fl-container fl-section" id="populares">
+      <div class="fl-section-header">
+        <h2>Ramos populares</h2>
+        <a href="#todos-ramos" class="fl-see-all">Ver todos →</a>
+      </div>
+
+      <div class="fl-products-grid">
+
+        <!-- PRODUCTO 1 -->
+        <article class="fl-product-card">
+          <div class="fl-product-img-box">
+            <button type="button" class="btn-fav" aria-label="Añadir a favoritos">♡</button>
+            <!-- [IMAGEN #2 - RAMO POPULAR 1] Ruta: assets/flores/ramo-1.jpg (500x500 px) -->
+            <img src="assets/flores/ramo-1.jpg" alt="Ramo Ternura" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #2</span>
+              <code>assets/flores/ramo-1.jpg</code>
+              <small>500 × 500 px</small>
+            </div>
+          </div>
+          <div class="fl-product-body">
+            <h3 class="fl-product-title">Ternura</h3>
+            <div class="fl-product-bottom">
+              <span class="fl-product-price">$45.00</span>
+              <button type="button" class="btn-add-cart" aria-label="Añadir al carrito">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PRODUCTO 2 -->
+        <article class="fl-product-card">
+          <div class="fl-product-img-box">
+            <button type="button" class="btn-fav" aria-label="Añadir a favoritos">♡</button>
+            <!-- [IMAGEN #3 - RAMO POPULAR 2] Ruta: assets/flores/ramo-2.jpg (500x500 px) -->
+            <img src="assets/flores/ramo-2.jpg" alt="Ramo Romántica" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #3</span>
+              <code>assets/flores/ramo-2.jpg</code>
+              <small>500 × 500 px</small>
+            </div>
+          </div>
+          <div class="fl-product-body">
+            <h3 class="fl-product-title">Romántica</h3>
+            <div class="fl-product-bottom">
+              <span class="fl-product-price">$55.00</span>
+              <button type="button" class="btn-add-cart" aria-label="Añadir al carrito">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PRODUCTO 3 -->
+        <article class="fl-product-card">
+          <div class="fl-product-img-box">
+            <button type="button" class="btn-fav" aria-label="Añadir a favoritos">♡</button>
+            <!-- [IMAGEN #4 - RAMO POPULAR 3] Ruta: assets/flores/ramo-3.jpg (500x500 px) -->
+            <img src="assets/flores/ramo-3.jpg" alt="Ramo Clásico Blanco" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #4</span>
+              <code>assets/flores/ramo-3.jpg</code>
+              <small>500 × 500 px</small>
+            </div>
+          </div>
+          <div class="fl-product-body">
+            <h3 class="fl-product-title">Clásico Blanco</h3>
+            <div class="fl-product-bottom">
+              <span class="fl-product-price">$42.00</span>
+              <button type="button" class="btn-add-cart" aria-label="Añadir al carrito">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PRODUCTO 4 -->
+        <article class="fl-product-card">
+          <div class="fl-product-img-box">
+            <button type="button" class="btn-fav" aria-label="Añadir a favoritos">♡</button>
+            <!-- [IMAGEN #5 - RAMO POPULAR 4] Ruta: assets/flores/ramo-4.jpg (500x500 px) -->
+            <img src="assets/flores/ramo-4.jpg" alt="Ramo Nube de Peonías" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #5</span>
+              <code>assets/flores/ramo-4.jpg</code>
+              <small>500 × 500 px</small>
+            </div>
+          </div>
+          <div class="fl-product-body">
+            <h3 class="fl-product-title">Nube de Peonías</h3>
+            <div class="fl-product-bottom">
+              <span class="fl-product-price">$75.00</span>
+              <button type="button" class="btn-add-cart" aria-label="Añadir al carrito">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PRODUCTO 5 -->
+        <article class="fl-product-card">
+          <div class="fl-product-img-box">
+            <button type="button" class="btn-fav" aria-label="Añadir a favoritos">♡</button>
+            <!-- [IMAGEN #6 - RAMO POPULAR 5] Ruta: assets/flores/ramo-5.jpg (500x500 px) -->
+            <img src="assets/flores/ramo-5.jpg" alt="Ramo Jardín de Tarde" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #6</span>
+              <code>assets/flores/ramo-5.jpg</code>
+              <small>500 × 500 px</small>
+            </div>
+          </div>
+          <div class="fl-product-body">
+            <h3 class="fl-product-title">Jardín de Tarde</h3>
+            <div class="fl-product-bottom">
+              <span class="fl-product-price">$52.00</span>
+              <button type="button" class="btn-add-cart" aria-label="Añadir al carrito">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- =================================================================
+         6. SECCIÓN: CATEGORÍAS (6 COLUMNAS)
+         ================================================================= -->
+    <section class="fl-container fl-section" id="categorias">
+      <div class="fl-section-header">
+        <h2>Categorías</h2>
+        <a href="#todas-categorias" class="fl-see-all">Ver todas →</a>
+      </div>
+
+      <div class="fl-categories-grid">
+
+        <!-- CATEGORÍA 1 -->
+        <a href="#cat-ramos" class="fl-cat-card">
+          <div class="fl-cat-img-box">
+            <!-- [IMAGEN #7 - CATEGORÍA 1] Ruta: assets/flores/cat-1.jpg (400x400 px) -->
+            <img src="assets/flores/cat-1.jpg" alt="Ramos" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #7</span>
+              <code>assets/flores/cat-1.jpg</code>
+            </div>
+          </div>
+          <span class="fl-cat-title">Ramos</span>
+        </a>
+
+        <!-- CATEGORÍA 2 -->
+        <a href="#cat-monoramos" class="fl-cat-card">
+          <div class="fl-cat-img-box">
+            <!-- [IMAGEN #8 - CATEGORÍA 2] Ruta: assets/flores/cat-2.jpg (400x400 px) -->
+            <img src="assets/flores/cat-2.jpg" alt="Monoramos" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #8</span>
+              <code>assets/flores/cat-2.jpg</code>
+            </div>
+          </div>
+          <span class="fl-cat-title">Monoramos</span>
+        </a>
+
+        <!-- CATEGORÍA 3 -->
+        <a href="#cat-cajas" class="fl-cat-card">
+          <div class="fl-cat-img-box">
+            <!-- [IMAGEN #9 - CATEGORÍA 3] Ruta: assets/flores/cat-3.jpg (400x400 px) -->
+            <img src="assets/flores/cat-3.jpg" alt="Flores en caja" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #9</span>
+              <code>assets/flores/cat-3.jpg</code>
+            </div>
+          </div>
+          <span class="fl-cat-title">Flores en caja</span>
+        </a>
+
+        <!-- CATEGORÍA 4 -->
+        <a href="#cat-arreglos" class="fl-cat-card">
+          <div class="fl-cat-img-box">
+            <!-- [IMAGEN #10 - CATEGORÍA 4] Ruta: assets/flores/cat-4.jpg (400x400 px) -->
+            <img src="assets/flores/cat-4.jpg" alt="Arreglos" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #10</span>
+              <code>assets/flores/cat-4.jpg</code>
+            </div>
+          </div>
+          <span class="fl-cat-title">Arreglos</span>
+        </a>
+
+        <!-- CATEGORÍA 5 -->
+        <a href="#cat-bodas" class="fl-cat-card">
+          <div class="fl-cat-img-box">
+            <!-- [IMAGEN #11 - CATEGORÍA 5] Ruta: assets/flores/cat-5.jpg (400x400 px) -->
+            <img src="assets/flores/cat-5.jpg" alt="Bodas" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #11</span>
+              <code>assets/flores/cat-5.jpg</code>
+            </div>
+          </div>
+          <span class="fl-cat-title">Bodas</span>
+        </a>
+
+        <!-- CATEGORÍA 6 -->
+        <a href="#cat-regalos" class="fl-cat-card">
+          <div class="fl-cat-img-box">
+            <!-- [IMAGEN #12 - CATEGORÍA 6] Ruta: assets/flores/cat-6.jpg (400x400 px) -->
+            <img src="assets/flores/cat-6.jpg" alt="Regalos" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #12</span>
+              <code>assets/flores/cat-6.jpg</code>
+            </div>
+          </div>
+          <span class="fl-cat-title">Regalos</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- =================================================================
+         7. SECCIÓN: 3 BANNERS PROMOCIONALES INFERIORES
+         ================================================================= -->
+    <section class="fl-container fl-section">
+      <div class="fl-promos-grid">
+
+        <!-- BANNER PROMO 1: DESCUENTO 10% -->
+        <div class="fl-promo-card">
+          <div class="fl-promo-content">
+            <h3>Descuento 10%<br>en el primer pedido</h3>
+            <p>Suscríbete al boletín y recibe tu código promocional</p>
+            <form class="fl-promo-form" onsubmit="return false;">
+              <input type="email" placeholder="Tu e-mail" aria-label="Tu e-mail">
+              <button type="submit" aria-label="Suscribirse">→</button>
+            </form>
+          </div>
+          <div class="fl-promo-img-slot">
+            <!-- [IMAGEN #13 - PROMO 1] Ruta: assets/flores/promo-1.png (260x260 px) -->
+            <img src="assets/flores/promo-1.png" alt="Promoción 10%" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #13</span>
+              <code>assets/flores/promo-1.png</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- BANNER PROMO 2: ENVÍO GRATIS -->
+        <div class="fl-promo-card">
+          <div class="fl-promo-content">
+            <h3>Envío gratuito<br>desde $50.00</h3>
+            <p>Entrega en toda la ciudad gratis en pedidos desde $50</p>
+          </div>
+          <div class="fl-promo-img-slot">
+            <!-- [IMAGEN #14 - PROMO 2] Ruta: assets/flores/promo-2.png (260x260 px) -->
+            <img src="assets/flores/promo-2.png" alt="Envío gratuito" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #14</span>
+              <code>assets/flores/promo-2.png</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- BANNER PROMO 3: TARJETA DE REGALO -->
+        <div class="fl-promo-card">
+          <div class="fl-promo-content">
+            <h3>Tarjeta dedicada<br>de regalo</h3>
+            <p>Añadimos una postal con tu dedicatoria especial al ramo</p>
+          </div>
+          <div class="fl-promo-img-slot">
+            <!-- [IMAGEN #15 - PROMO 3] Ruta: assets/flores/promo-3.png (260x260 px) -->
+            <img src="assets/flores/promo-3.png" alt="Tarjeta de regalo" class="slot-img" onerror="this.style.display='none';">
+            <div class="slot-guide">
+              <span class="slot-badge">IMAGEN #15</span>
+              <code>assets/flores/promo-3.png</code>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================================================================
+       8. PIE DE PÁGINA (5 COLUMNAS + BARRA LEGAL)
+       ================================================================= -->
+  <footer class="fl-footer" id="contacto">
+    <div class="fl-container fl-footer-grid">
+      <!-- Columna 1: Marca -->
+      <div class="fl-footer-brand">
+        <a href="flores.html" class="fl-logo">
+          <div class="fl-logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="#e85382" stroke-width="1.6">
+              <polygon points="20,2 35,11 35,29 20,38 5,29 5,11" fill="#fdf2f5"/>
+              <circle cx="20" cy="20" r="7"/>
+            </svg>
+          </div>
+          <div class="fl-logo-text">
+            <span class="fl-brand-name">Florencia</span>
+            <span class="fl-brand-sub">flores con amor</span>
+          </div>
+        </a>
+        <p class="fl-footer-desc">
+          Creamos ramos que hablan por ti en cada ocasión especial.
+        </p>
+        <div class="fl-footer-socials">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="Telegram">TG</a>
+        </div>
+      </div>
+
+      <!-- Columna 2: Catálogo -->
+      <div class="fl-footer-col">
+        <h4>Catálogo</h4>
+        <ul>
+          <li><a href="#">Ramos</a></li>
+          <li><a href="#">Monoramos</a></li>
+          <li><a href="#">Flores en caja</a></li>
+          <li><a href="#">Arreglos</a></li>
+          <li><a href="#">Bodas</a></li>
+          <li><a href="#">Regalos</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Para clientes -->
+      <div class="fl-footer-col" id="envio">
+        <h4>Para clientes</h4>
+        <ul>
+          <li><a href="#">Envío y pago</a></li>
+          <li><a href="#">Cambios y devoluciones</a></li>
+          <li><a href="#">Cuidado de las flores</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 4: Sobre nosotros -->
+      <div class="fl-footer-col" id="sobre-nosotros">
+        <h4>Sobre nosotros</h4>
+        <ul>
+          <li><a href="#">La empresa</a></li>
+          <li><a href="#">Nuestros trabajos</a></li>
+          <li><a href="#">Reseñas</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 5: Contactos -->
+      <div class="fl-footer-col fl-footer-contact">
+        <h4>Contacto</h4>
+        <div class="contact-row">
+          <strong>📞 +7 (495) 123-45-67</strong>
+          <small>Todos los días de 8:00 a 22:00</small>
+        </div>
+        <div class="contact-row">
+          <span>📍 Av. Las Flores, 15</span>
+          <a href="#" class="map-link">Ver en el mapa</a>
+        </div>
+        <div class="contact-row">
+          <a href="mailto:info@florencia.ru">✉ info@florencia.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="fl-container fl-footer-bottom">
+      <span>© 2026 Florencia. Todos los derechos reservados.</span>
+      <div class="fl-legal-links">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Acuerdo de usuario</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

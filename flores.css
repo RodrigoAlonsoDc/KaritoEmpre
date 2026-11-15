@@ -1,0 +1,762 @@
+/* ==========================================================================
+   PLANTILLA "FLORENCIA" — TIENDA DE FLORES & CATÁLOGO (SIN IMÁGENES GENERADAS)
+   ========================================================================== */
+
+:root {
+  --fl-pink: #e85382;
+  --fl-pink-hover: #d63f6f;
+  --fl-blush: #f5dce1;
+  --fl-blush-soft: #f9eef1;
+  --fl-bg: #ffffff;
+  --fl-gray-bg: #f6f6f8;
+  --fl-text: #221f20;
+  --fl-muted: #7a7376;
+  --fl-border: #ece7e9;
+  --fl-serif: "Cormorant Garamond", Georgia, serif;
+  --fl-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--fl-bg);
+  color: var(--fl-text);
+  font-family: var(--fl-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.fl-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================================
+   ESTILOS DE LOS CONTENEDORES DE IMAGEN (SLOTS PARA SUBIR TUS FOTOS)
+   ========================================================================== */
+.slot-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.slot-guide {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  border: 2px dashed rgba(232, 83, 130, 0.45);
+  border-radius: inherit;
+  background-color: rgba(255, 255, 255, 0.55);
+  color: var(--fl-text);
+  gap: 4px;
+}
+
+.slot-badge {
+  background-color: var(--fl-pink);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.slot-guide code {
+  font-size: 11px;
+  font-weight: 700;
+  color: #b82d5b;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.slot-guide small {
+  font-size: 11px;
+  color: var(--fl-muted);
+}
+
+/* ==========================================================================
+   1. BARRA SUPERIOR INFORMATIVA (TOP UTILITY BAR)
+   ========================================================================== */
+.top-utility-bar {
+  background-color: #fafafa;
+  border-bottom: 1px solid var(--fl-border);
+  font-size: 12px;
+  color: var(--fl-muted);
+  padding: 8px 0;
+}
+
+.top-utility-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.utility-left,
+.utility-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.utility-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.utility-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.utility-nav a:hover {
+  color: var(--fl-pink);
+}
+
+.back-events-link {
+  color: var(--fl-pink);
+  font-weight: 600;
+}
+
+.utility-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.phone-number {
+  font-weight: 700;
+  color: var(--fl-text);
+  font-size: 13px;
+}
+
+.phone-hours {
+  font-size: 10px;
+  color: var(--fl-muted);
+}
+
+/* ==========================================================================
+   2. CABECERA PRINCIPAL (LOGO + CATÁLOGO + BUSCADOR + ACCIONES)
+   ========================================================================== */
+.fl-header {
+  padding: 18px 0;
+  background-color: var(--fl-bg);
+}
+
+.fl-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.fl-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  shrink: 0;
+}
+
+.fl-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.fl-brand-name {
+  font-family: var(--fl-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--fl-text);
+}
+
+.fl-brand-sub {
+  font-size: 10px;
+  color: var(--fl-muted);
+  letter-spacing: 0.04em;
+}
+
+.btn-catalog {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--fl-pink);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.btn-catalog:hover {
+  background-color: var(--fl-pink-hover);
+}
+
+.fl-search {
+  flex: 1;
+  max-width: 440px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.fl-search input {
+  width: 100%;
+  background-color: var(--fl-gray-bg);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 10px 40px 10px 18px;
+  font-size: 13px;
+  color: var(--fl-text);
+  outline: none;
+}
+
+.fl-search input:focus {
+  border-color: var(--fl-pink);
+  background-color: #ffffff;
+}
+
+.fl-search button {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  color: var(--fl-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.fl-user-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-action-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fl-text);
+}
+
+.user-action-item:hover {
+  color: var(--fl-pink);
+}
+
+.cart-badge {
+  background-color: var(--fl-pink);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   3. BANNER HERO PRINCIPAL
+   ========================================================================== */
+.fl-hero-banner {
+  background: linear-gradient(120deg, #f5dce1 0%, #f7e4e8 100%);
+  border-radius: 22px;
+  min-height: 360px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.fl-hero-text {
+  padding: 46px 48px;
+}
+
+.fl-hero-text h1 {
+  font-family: var(--fl-serif);
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 700;
+  line-height: 1.12;
+  color: var(--fl-text);
+  margin-bottom: 14px;
+}
+
+.fl-hero-text p {
+  font-size: 15px;
+  color: #544b4e;
+  margin-bottom: 26px;
+  line-height: 1.45;
+}
+
+.btn-pink-primary {
+  display: inline-block;
+  background-color: var(--fl-pink);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 26px;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(232, 83, 130, 0.25);
+}
+
+.btn-pink-primary:hover {
+  background-color: var(--fl-pink-hover);
+}
+
+.hero-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 34px;
+}
+
+.hero-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.hero-dots .dot.active {
+  background-color: var(--fl-pink);
+}
+
+.fl-hero-image-slot {
+  position: relative;
+  height: 100%;
+  min-height: 340px;
+  margin: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   4. FRANJA DE 4 BENEFICIOS / GARANTÍAS
+   ========================================================================== */
+.fl-features-bar {
+  background-color: #ffffff;
+  border: 1px solid var(--fl-border);
+  border-radius: 16px;
+  padding: 22px 28px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+  margin-bottom: 42px;
+}
+
+.fl-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.fl-feature-icon {
+  shrink: 0;
+  margin-top: 2px;
+}
+
+.fl-feature-info h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.fl-feature-info p {
+  font-size: 12px;
+  color: var(--fl-muted);
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   5. SECCIÓN: RAMOS POPULARES (5 COLUMNAS)
+   ========================================================================== */
+.fl-section {
+  margin-bottom: 46px;
+}
+
+.fl-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.fl-section-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.fl-see-all {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fl-pink);
+}
+
+.fl-products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.fl-product-card {
+  background-color: #ffffff;
+  border: 1px solid var(--fl-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease;
+}
+
+.fl-product-card:hover {
+  transform: translateY(-3px);
+}
+
+.fl-product-img-box {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  background-color: #f4ecee;
+  overflow: hidden;
+}
+
+.btn-fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: none;
+  color: var(--fl-muted);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn-fav:hover {
+  color: var(--fl-pink);
+}
+
+.fl-product-body {
+  padding: 14px;
+}
+
+.fl-product-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.fl-product-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fl-product-price {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.btn-add-cart {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: var(--fl-pink);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-add-cart:hover {
+  background-color: var(--fl-pink-hover);
+}
+
+/* ==========================================================================
+   6. SECCIÓN: CATEGORÍAS (6 COLUMNAS)
+   ========================================================================== */
+.fl-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.fl-cat-card {
+  background-color: #ffffff;
+  border: 1px solid var(--fl-border);
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  padding-bottom: 12px;
+}
+
+.fl-cat-card:hover {
+  border-color: var(--fl-pink);
+}
+
+.fl-cat-img-box {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background-color: #f4ecee;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.fl-cat-title {
+  font-size: 13px;
+  font-weight: 700;
+  display: block;
+}
+
+/* ==========================================================================
+   7. SECCIÓN: 3 BANNERS PROMOCIONALES INFERIORES
+   ========================================================================== */
+.fl-promos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.fl-promo-card {
+  background-color: var(--fl-blush-soft);
+  border-radius: 16px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  align-items: center;
+  gap: 12px;
+  min-height: 175px;
+  overflow: hidden;
+}
+
+.fl-promo-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+
+.fl-promo-content p {
+  font-size: 12px;
+  color: var(--fl-muted);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.fl-promo-form {
+  display: flex;
+  gap: 6px;
+}
+
+.fl-promo-form input {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--fl-border);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 12px;
+  outline: none;
+}
+
+.fl-promo-form button {
+  background-color: var(--fl-pink);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  width: 32px;
+   shrink: 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.fl-promo-img-slot {
+  position: relative;
+  height: 135px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   8. PIE DE PÁGINA (5 COLUMNAS)
+   ========================================================================== */
+.fl-footer {
+  border-top: 1px solid var(--fl-border);
+  padding-top: 42px;
+  padding-bottom: 24px;
+  background-color: #ffffff;
+}
+
+.fl-footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.3fr;
+  gap: 28px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--fl-border);
+}
+
+.fl-footer-desc {
+  font-size: 12px;
+  color: var(--fl-muted);
+  margin: 12px 0 16px;
+  max-width: 220px;
+}
+
+.fl-footer-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.fl-footer-socials a {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--fl-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--fl-muted);
+}
+
+.fl-footer-socials a:hover {
+  border-color: var(--fl-pink);
+  color: var(--fl-pink);
+}
+
+.fl-footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.fl-footer-col ul {
+  list-style: none;
+}
+
+.fl-footer-col li {
+  margin-bottom: 7px;
+  font-size: 12px;
+  color: var(--fl-muted);
+}
+
+.fl-footer-col a:hover {
+  color: var(--fl-pink);
+}
+
+.contact-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.contact-row small {
+  color: var(--fl-muted);
+  font-size: 11px;
+}
+
+.map-link {
+  color: var(--fl-pink);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.fl-footer-bottom {
+  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--fl-muted);
+}
+
+.fl-legal-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
+  .fl-hero-banner {
+    grid-template-columns: 1fr;
+  }
+  .fl-features-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fl-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .fl-categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .fl-promos-grid {
+    grid-template-columns: 1fr;
+  }
+  .fl-footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .fl-header-inner {
+    flex-wrap: wrap;
+  }
+  .fl-features-bar,
+  .fl-products-grid,
+  .fl-categories-grid,
+  .fl-footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
