@@ -301,7 +301,7 @@ img {
 .fl-hero-banner {
   background: linear-gradient(120deg, #f5dce1 0%, #f7e4e8 100%);
   border-radius: 22px;
-  min-height: 360px;
+  min-height: clamp(480px, calc(100vh - 145px), 640px);
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   align-items: center;
@@ -310,7 +310,7 @@ img {
 }
 
 .fl-hero-text {
-  padding: 46px 48px;
+  padding: 56px 52px;
 }
 
 .fl-hero-text h1 {
@@ -364,8 +364,8 @@ img {
 
 .fl-hero-image-slot {
   position: relative;
-  height: 100%;
-  min-height: 340px;
+  align-self: stretch;
+  min-height: 440px;
   margin: 16px;
   border-radius: 16px;
   overflow: hidden;
