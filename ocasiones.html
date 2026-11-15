@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karito Fest — Arreglos por Ocasión</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="flores.css">
+</head>
+<body>
+
+  <!-- =================================================================
+       1. CABECERA PRINCIPAL (MISMA DE KARITO FEST)
+       ================================================================= -->
+  <header class="fl-header">
+    <div class="fl-container fl-header-inner">
+      <a href="flores.html" class="fl-logo">
+        <div class="fl-logo-icon">
+          <img src="assets/flores/logo-karito-fest.png" alt="Logo Karito Fest" class="fl-logo-img">
+        </div>
+        <div class="fl-logo-text">
+          <span class="fl-brand-name">Karito <em>Fest</em></span>
+          <span class="fl-brand-sub">flores &amp; detalles con amor</span>
+        </div>
+      </a>
+
+      <div class="fl-header-center">
+        <a href="flores.html#categorias" class="btn-catalog">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="14" y2="17"></line>
+          </svg>
+          <span>Catálogo</span>
+        </a>
+
+        <form class="fl-search" role="search" onsubmit="return false;">
+          <input type="search" id="occSearchInput" oninput="renderProducts()" placeholder="Buscar ramos y flores..." aria-label="Buscar ramos y flores">
+          <button type="submit" aria-label="Buscar">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <div class="fl-user-actions">
+        <a href="#perfil" class="user-action-item" aria-label="Mi cuenta">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+        <a href="#favoritos" class="user-action-item">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span>Favoritos</span>
+        </a>
+        <a href="#carrito" class="user-action-item">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span>Carrito</span>
+          <span class="cart-badge" id="occCartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- =================================================================
+         2. BREADCRUMB (Karito Fest > Ocasión)
+         ================================================================= -->
+    <div class="fl-container occ-breadcrumb">
+      <a href="flores.html">Karito Fest</a>
+      <span>&gt;</span>
+      <span id="occBreadcrumb">Todas las ocasiones</span>
+    </div>
+
+    <!-- =================================================================
+         3. CONTENEDOR PRINCIPAL: FILTROS IZQUIERDA + PRODUCTOS DERECHA
+         ================================================================= -->
+    <div class="fl-container occ-layout">
+
+      <!-- SIDEBAR DE FILTROS -->
+      <aside class="occ-sidebar" aria-label="Filtros de productos">
+        <!-- Acordeón: Ocasiones -->
+        <div class="occ-filter-group">
+          <button type="button" class="occ-filter-toggle" onclick="toggleFilter('filterOcasiones')">
+            <span>Ocasiones</span>
+            <span>⌄</span>
+          </button>
+          <div class="occ-filter-options" id="filterOcasiones">
+            <label class="occ-option-label"><input type="radio" name="ocasion" value="todas" onchange="selectOccasion('todas')"> Todas</label>
+            <label class="occ-option-label"><input type="radio" name="ocasion" value="amor" onchange="selectOccasion('amor')"> Amor</label>
+            <label class="occ-option-label"><input type="radio" name="ocasion" value="aniversario" onchange="selectOccasion('aniversario')"> Aniversario</label>
+            <label class="occ-option-label"><input type="radio" name="ocasion" value="condolencias" onchange="selectOccasion('condolencias')"> Condolencias</label>
+            <label class="occ-option-label"><input type="radio" name="ocasion" value="cumpleanos" onchange="selectOccasion('cumpleanos')"> Cumpleaños</label>
+            <label class="occ-option-label"><input type="radio" name="ocasion" value="graduacion" onchange="selectOccasion('graduacion')"> Graduación</label>
+            <label class="occ-option-label"><input type="radio" name="ocasion" value="mejorate" onchange="selectOccasion('mejorate')"> Mejórate pronto</label>
+            <label class="occ-option-label"><input type="radio" name="ocasion" value="nacimientos" onchange="selectOccasion('nacimientos')"> Nacimientos</label>
+          </div>
+        </div>
+
+        <!-- Acordeón: Color -->
+        <div class="occ-filter-group">
+          <button type="button" class="occ-filter-toggle" onclick="toggleFilter('filterColor')">
+            <span>Color</span>
+            <span>⌄</span>
+          </button>
+          <div class="occ-filter-options is-collapsed" id="filterColor">
+            <label class="occ-option-label"><input type="radio" name="color" value="todos" checked onchange="renderProducts()"> Todos los colores</label>
+            <label class="occ-option-label"><input type="radio" name="color" value="rosa" onchange="renderProducts()"> Rosa</label>
+            <label class="occ-option-label"><input type="radio" name="color" value="blanco" onchange="renderProducts()"> Blanco</label>
+            <label class="occ-option-label"><input type="radio" name="color" value="rojo" onchange="renderProducts()"> Rojo</label>
+            <label class="occ-option-label"><input type="radio" name="color" value="mixto" onchange="renderProducts()"> Mixto</label>
+          </div>
+        </div>
+
+        <!-- Acordeón: Categoría -->
+        <div class="occ-filter-group">
+          <button type="button" class="occ-filter-toggle" onclick="toggleFilter('filterCat')">
+            <span>Categoría</span>
+            <span>⌄</span>
+          </button>
+          <div class="occ-filter-options is-collapsed" id="filterCat">
+            <label class="occ-option-label"><input type="radio" name="categoria" value="todas" checked onchange="renderProducts()"> Todas</label>
+            <label class="occ-option-label"><input type="radio" name="categoria" value="ramos" onchange="renderProducts()"> Ramos</label>
+            <label class="occ-option-label"><input type="radio" name="categoria" value="cajas" onchange="renderProducts()"> Flores en caja</label>
+            <label class="occ-option-label"><input type="radio" name="categoria" value="arreglos" onchange="renderProducts()"> Arreglos</label>
+            <label class="occ-option-label"><input type="radio" name="categoria" value="regalos" onchange="renderProducts()"> Regalos y Peluches</label>
+          </div>
+        </div>
+
+        <!-- Rangos de precio -->
+        <div class="occ-price-wrap">
+          <div class="occ-price-title">Rangos de precio</div>
+          <input type="range" id="occPriceRange" class="occ-price-slider" min="80" max="750" step="10" value="750" oninput="updatePriceLabel(this.value)">
+          <div class="occ-price-values">
+            <span>S/ 80.00</span>
+            <span id="occMaxPriceText">Hasta S/ 750.00</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ÁREA PRINCIPAL DE PRODUCTOS -->
+      <section>
+        <div class="occ-main-header">
+          <h1 class="occ-main-title" id="occMainTitle">Todas las ocasiones</h1>
+
+          <select id="occSortSelect" class="occ-sort-select" onchange="renderProducts()" aria-label="Ordenar productos">
+            <option value="ventas">Ordenar por Ventas</option>
+            <option value="precio-asc">Menor precio</option>
+            <option value="precio-desc">Mayor precio</option>
+          </select>
+        </div>
+
+        <div class="occ-grid" id="occProductsGrid"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- =================================================================
+       4. PIE DE PÁGINA (MISMO DE KARITO FEST)
+       ================================================================= -->
+  <footer class="fl-footer" id="contacto">
+    <div class="fl-container fl-footer-grid">
+      <div class="fl-footer-brand">
+        <a href="flores.html" class="fl-logo">
+          <div class="fl-logo-icon">
+            <img src="assets/flores/logo-karito-fest.png" alt="Logo Karito Fest" class="fl-logo-img">
+          </div>
+          <div class="fl-logo-text">
+            <span class="fl-brand-name">Karito <em>Fest</em></span>
+            <span class="fl-brand-sub">flores &amp; detalles con amor</span>
+          </div>
+        </a>
+        <p class="fl-footer-desc">
+          Creamos ramos que hablan por ti en cada ocasión especial.
+        </p>
+      </div>
+
+      <div class="fl-footer-col">
+        <h4>Ocasiones</h4>
+        <ul>
+          <li><a href="ocasiones.html?ocasion=amor">Amor</a></li>
+          <li><a href="ocasiones.html?ocasion=aniversario">Aniversario</a></li>
+          <li><a href="ocasiones.html?ocasion=condolencias">Condolencias</a></li>
+          <li><a href="ocasiones.html?ocasion=cumpleanos">Cumpleaños</a></li>
+        </ul>
+      </div>
+
+      <div class="fl-footer-col">
+        <h4>Más Ocasiones</h4>
+        <ul>
+          <li><a href="ocasiones.html?ocasion=graduacion">Graduación</a></li>
+          <li><a href="ocasiones.html?ocasion=mejorate">Mejórate pronto</a></li>
+          <li><a href="ocasiones.html?ocasion=nacimientos">Nacimientos</a></li>
+          <li><a href="flores.html">Volver al inicio</a></li>
+        </ul>
+      </div>
+
+      <div class="fl-footer-col">
+        <h4>Para clientes</h4>
+        <ul>
+          <li><a href="#">Envío y pago</a></li>
+          <li><a href="#">Cambios y devoluciones</a></li>
+          <li><a href="#">Cuidado de las flores</a></li>
+        </ul>
+      </div>
+
+      <div class="fl-footer-col fl-footer-contact">
+        <h4>Contacto</h4>
+        <div class="contact-row">
+          <a href="mailto:info@karitofest.com">✉ info@karitofest.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="fl-container fl-footer-bottom">
+      <span>© 2026 Karito Fest. Todos los derechos reservados.</span>
+      <div class="fl-legal-links">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Acuerdo de usuario</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const occasionNames = {
+      todas: 'Todas las ocasiones',
+      amor: 'Amor',
+      aniversario: 'Aniversario',
+      condolencias: 'Condolencias',
+      cumpleanos: 'Cumpleaños',
+      graduacion: 'Graduación',
+      mejorate: 'Mejórate pronto',
+      nacimientos: 'Nacimientos'
+    };
+
+    const productsCatalog = [
+      { id: 1, title: 'Ramo Clásico de 24 Rosas Rojas', price: 185, occasion: 'amor', color: 'rojo', category: 'ramos', sales: 98, img: 'assets/flores/productos/amor-1.jpg' },
+      { id: 2, title: 'Caja Corazón con Rosas & Bombones', price: 240, occasion: 'amor', color: 'rosa', category: 'cajas', sales: 92, img: 'assets/flores/productos/amor-2.jpg' },
+      { id: 3, title: 'Sombrerera Luxury Mix Peonías', price: 290, occasion: 'aniversario', color: 'rosa', category: 'cajas', sales: 89, img: 'assets/flores/productos/aniv-1.jpg' },
+      { id: 4, title: 'Bouquet Romance Eterno Pastel', price: 210, occasion: 'aniversario', color: 'mixto', category: 'ramos', sales: 85, img: 'assets/flores/productos/aniv-2.jpg' },
+      { id: 5, title: 'Lágrima con Trípode Gladiolos y Flores', price: 165, occasion: 'condolencias', color: 'blanco', category: 'arreglos', sales: 96, img: 'assets/flores/productos/cond-1.jpg' },
+      { id: 6, title: 'Corona Fúnebre con Rosas y Flores Cremas', price: 430, occasion: 'condolencias', color: 'blanco', category: 'arreglos', sales: 90, img: 'assets/flores/productos/cond-2.jpg' },
+      { id: 7, title: 'Lágrima con Trípode Flores Variadas', price: 175, occasion: 'condolencias', color: 'blanco', category: 'arreglos', sales: 84, img: 'assets/flores/productos/cond-3.jpg' },
+      { id: 8, title: 'Lágrima Gladiolos y Flores Sin Trípode', price: 149, occasion: 'condolencias', color: 'blanco', category: 'arreglos', sales: 81, img: 'assets/flores/productos/cond-4.jpg' },
+      { id: 9, title: 'Box Feliz Cumpleaños con Peluche', price: 195, occasion: 'cumpleanos', color: 'rosa', category: 'regalos', sales: 94, img: 'assets/flores/productos/cump-1.jpg' },
+      { id: 10, title: 'Ramo Primavera Girasoles & Rosas', price: 155, occasion: 'cumpleanos', color: 'mixto', category: 'ramos', sales: 86, img: 'assets/flores/productos/cump-2.jpg' },
+      { id: 11, title: 'Osito Graduado + Ramo de Tulipanes', price: 215, occasion: 'graduacion', color: 'mixto', category: 'regalos', sales: 88, img: 'assets/flores/productos/grad-1.jpg' },
+      { id: 12, title: 'Arreglo Éxito Dorado en Caja', price: 230, occasion: 'graduacion', color: 'blanco', category: 'cajas', sales: 82, img: 'assets/flores/productos/grad-2.jpg' },
+      { id: 13, title: 'Canasta Alegría con Tulipanes & Osito', price: 180, occasion: 'mejorate', color: 'rosa', category: 'arreglos', sales: 83, img: 'assets/flores/productos/mej-1.jpg' },
+      { id: 14, title: 'Set Dulce Bienvenida Bebé & Flores', price: 225, occasion: 'nacimientos', color: 'rosa', category: 'regalos', sales: 91, img: 'assets/flores/productos/nac-1.jpg' }
+    ];
+
+    let activeOccasion = 'todas';
+    let cartTotal = 0;
+
+    function getParamOccasion() {
+      const params = new URLSearchParams(window.location.search);
+      const val = params.get('ocasion');
+      return val && occasionNames[val] ? val : 'todas';
+    }
+
+    function toggleFilter(id) {
+      document.getElementById(id).classList.toggle('is-collapsed');
+    }
+
+    function updatePriceLabel(val) {
+      document.getElementById('occMaxPriceText').textContent = 'Hasta S/ ' + Number(val).toFixed(2);
+      renderProducts();
+    }
+
+    function selectOccasion(val) {
+      activeOccasion = val;
+      const title = occasionNames[val] || 'Todas las ocasiones';
+      document.getElementById('occMainTitle').textContent = title;
+      document.getElementById('occBreadcrumb').textContent = title;
+      renderProducts();
+    }
+
+    function changeQty(btn, delta) {
+      const span = btn.parentElement.querySelector('.occ-qty-val');
+      let current = parseInt(span.textContent, 10) || 1;
+      current = Math.max(1, current + delta);
+      span.textContent = current;
+    }
+
+    function buyNow(btn) {
+      const card = btn.closest('.occ-card');
+      const qty = parseInt(card.querySelector('.occ-qty-val').textContent, 10) || 1;
+      cartTotal += qty;
+      document.getElementById('occCartCount').textContent = cartTotal;
+      const original = btn.textContent;
+      btn.textContent = '¡Añadido ✓!';
+      btn.style.color = '#e85382';
+      setTimeout(function () {
+        btn.textContent = original;
+        btn.style.color = '';
+      }, 1200);
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('occProductsGrid');
+      const color = document.querySelector('input[name="color"]:checked').value;
+      const category = document.querySelector('input[name="categoria"]:checked').value;
+      const maxPrice = Number(document.getElementById('occPriceRange').value);
+      const search = document.getElementById('occSearchInput').value.trim().toLowerCase();
+      const sortBy = document.getElementById('occSortSelect').value;
+
+      let filtered = productsCatalog.filter(function (item) {
+        const matchOcc = activeOccasion === 'todas' || item.occasion === activeOccasion;
+        const matchColor = color === 'todos' || item.color === color;
+        const matchCat = category === 'todas' || item.category === category;
+        const matchPrice = item.price <= maxPrice;
+        const matchSearch = !search || item.title.toLowerCase().includes(search);
+        return matchOcc && matchColor && matchCat && matchPrice && matchSearch;
+      });
+
+      if (sortBy === 'precio-asc') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sortBy === 'precio-desc') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else {
+        filtered.sort((a, b) => b.sales - a.sales);
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<p style="grid-column: 1 / -1; color: #7a7376;">No hay arreglos que coincidan con los filtros seleccionados.</p>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(function (item) {
+        return `
+          <article class="occ-card">
+            <div class="occ-card-img-box">
+              <img src="${item.img}" alt="${item.title}" class="slot-img" onerror="this.style.display='none';">
+              <div class="slot-guide">
+                <span class="slot-badge">PRODUCTO #${item.id}</span>
+                <code>${item.img}</code>
+                <small>500 × 500 px</small>
+              </div>
+            </div>
+            <div class="occ-card-body">
+              <h3 class="occ-card-title">${item.title}</h3>
+              <div class="occ-card-price">S/ ${item.price.toFixed(2)}</div>
+              <div class="occ-qty-row">
+                <button type="button" class="occ-qty-btn" onclick="changeQty(this, -1)" aria-label="Disminuir cantidad">−</button>
+                <span class="occ-qty-val">1</span>
+                <button type="button" class="occ-qty-btn" onclick="changeQty(this, 1)" aria-label="Aumentar cantidad">+</button>
+              </div>
+              <button type="button" class="occ-buy-btn" onclick="buyNow(this)">Comprar ahora</button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    (function init() {
+      const initial = getParamOccasion();
+      const radio = document.querySelector('input[name="ocasion"][value="' + initial + '"]');
+      if (radio) radio.checked = true;
+      selectOccasion(initial);
+    })();
+  </script>
+
+</body>
+</html>

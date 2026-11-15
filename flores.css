@@ -854,6 +854,318 @@ img {
   gap: 20px;
 }
 
+/* ==========================================================================
+   9. CARRUSEL CONTINUO DE OCASIONES (DEBAJO DEL HERO)
+   ========================================================================== */
+.fl-occasions-section {
+  padding: 24px 24px 34px;
+  text-align: center;
+}
+
+.fl-occasions-heading {
+  font-family: var(--fl-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--fl-text);
+  margin-bottom: 24px;
+}
+
+.fl-occasions-marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 8px 0;
+}
+
+.fl-occasions-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 34px;
+  width: max-content;
+  animation: occasions-scroll 26s linear infinite;
+}
+
+.fl-occasions-marquee:hover .fl-occasions-track {
+  animation-play-state: paused;
+}
+
+@keyframes occasions-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.fl-occasion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 132px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.fl-occasion-circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--fl-blush);
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.fl-occasion-item:hover .fl-occasion-circle {
+  transform: translateY(-4px) scale(1.03);
+  border-color: var(--fl-pink);
+}
+
+.fl-occasion-circle .slot-guide {
+  padding: 8px;
+}
+
+.fl-occasion-circle .slot-guide code {
+  font-size: 9.5px;
+}
+
+.fl-occasion-label {
+  font-family: var(--fl-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--fl-pink);
+  text-align: center;
+}
+
+/* ==========================================================================
+   10. PÁGINA DE OCASIONES Y FILTROS (ocasiones.html)
+   ========================================================================== */
+.occ-breadcrumb {
+  padding: 16px 24px 8px;
+  font-size: 12px;
+  color: var(--fl-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.occ-breadcrumb a:hover {
+  color: var(--fl-pink);
+}
+
+.occ-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  padding: 14px 24px 60px;
+  align-items: start;
+}
+
+.occ-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.occ-filter-group {
+  border-bottom: 1px solid var(--fl-border);
+  padding: 14px 0;
+}
+
+.occ-filter-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--fl-sans);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fl-text);
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.occ-filter-options {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.occ-filter-options.is-collapsed {
+  display: none;
+}
+
+.occ-option-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--fl-muted);
+  cursor: pointer;
+}
+
+.occ-option-label input[type="radio"],
+.occ-option-label input[type="checkbox"] {
+  accent-color: var(--fl-pink);
+  cursor: pointer;
+}
+
+.occ-price-wrap {
+  padding: 16px 0;
+}
+
+.occ-price-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fl-text);
+  margin-bottom: 12px;
+}
+
+.occ-price-slider {
+  width: 100%;
+  accent-color: var(--fl-pink);
+  cursor: pointer;
+}
+
+.occ-price-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fl-text);
+  margin-top: 8px;
+}
+
+.occ-main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.occ-main-title {
+  font-family: var(--fl-serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--fl-text);
+}
+
+.occ-sort-select {
+  border: 1px solid var(--fl-pink);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-family: var(--fl-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fl-pink);
+  background-color: #ffffff;
+  outline: none;
+  cursor: pointer;
+}
+
+.occ-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.occ-card {
+  background-color: #ffffff;
+  border: 1px solid var(--fl-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.occ-card-img-box {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  background-color: #f4ecee;
+  overflow: hidden;
+}
+
+.occ-card-body {
+  padding: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.occ-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fl-text);
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.occ-card-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--fl-pink);
+}
+
+.occ-qty-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 2px auto;
+}
+
+.occ-qty-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--fl-gray-bg);
+  color: var(--fl-text);
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.occ-qty-btn:hover {
+  background-color: var(--fl-blush);
+  color: var(--fl-pink);
+}
+
+.occ-qty-val {
+  font-size: 13px;
+  font-weight: 600;
+  min-width: 16px;
+}
+
+.occ-buy-btn {
+  background: none;
+  border: none;
+  font-family: var(--fl-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--fl-text);
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.occ-buy-btn:hover {
+  color: var(--fl-pink);
+}
+
 /* RESPONSIVE */
 @media (max-width: 980px) {
   .fl-hero-banner {
@@ -874,6 +1186,12 @@ img {
   .fl-footer-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .occ-layout {
+    grid-template-columns: 1fr;
+  }
+  .occ-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 600px) {
@@ -883,7 +1201,8 @@ img {
   .fl-features-bar,
   .fl-products-grid,
   .fl-categories-grid,
-  .fl-footer-grid {
+  .fl-footer-grid,
+  .occ-grid {
     grid-template-columns: 1fr;
   }
 }
