@@ -298,8 +298,20 @@
     function buyNow(btn) {
       const card = btn.closest('.occ-card');
       const qty = parseInt(card.querySelector('.occ-qty-val').textContent, 10) || 1;
-      cartTotal += qty;
-      document.getElementById('occCartCount').textContent = cartTotal;
+      const title = card.querySelector('.occ-card-title').textContent.trim();
+      const priceText = card.querySelector('.occ-card-price').textContent;
+      const price = parseFloat(priceText.replace(/[^0-9.]/g, '')) || 0;
+      const img = card.querySelector('.slot-img')?.getAttribute('src') || '';
+
+      if (window.karitoCart) {
+        window.karitoCart.add({
+          title: title,
+          price: price,
+          img: img,
+          qty: qty
+        });
+      }
+
       const original = btn.textContent;
       btn.textContent = '¡Añadido ✓!';
       btn.style.color = '#e85382';
@@ -372,6 +384,7 @@
       selectOccasion(initial);
     })();
   </script>
+  <script src="cart.js"></script>
 
 </body>
 </html>
