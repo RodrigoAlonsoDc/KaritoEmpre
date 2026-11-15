@@ -12,8 +12,8 @@
   --fl-text: #221f20;
   --fl-muted: #7a7376;
   --fl-border: #ece7e9;
-  --fl-serif: "Cormorant Garamond", Georgia, serif;
   --fl-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --fl-serif: var(--fl-sans);
 }
 
 *,
@@ -863,8 +863,8 @@ img {
 }
 
 .fl-occasions-heading {
-  font-family: var(--fl-serif);
-  font-size: 28px;
+  font-family: var(--fl-sans);
+  font-size: 24px;
   font-weight: 700;
   color: var(--fl-text);
   margin-bottom: 24px;
@@ -933,9 +933,9 @@ img {
 }
 
 .fl-occasion-label {
-  font-family: var(--fl-serif);
-  font-size: 16px;
-  font-weight: 700;
+  font-family: var(--fl-sans);
+  font-size: 14px;
+  font-weight: 600;
   color: var(--fl-pink);
   text-align: center;
 }
