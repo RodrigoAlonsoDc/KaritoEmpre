@@ -79,41 +79,120 @@
   <main>
 
     <!-- =================================================================
-         3. BANNER HERO PRINCIPAL
+         3. BANNER HERO PRINCIPAL (CARRUSEL AUTOMÁTICO DESLIZANTE)
          ================================================================= -->
     <section class="fl-container">
-      <div class="fl-hero-banner">
-        <div class="fl-hero-text">
-          <h1>
-            Regala emociones<br>
-            con flores frescas
-          </h1>
-          <p>
-            Ramos para cualquier ocasión<br>
-            con entrega a domicilio en toda la ciudad
-          </p>
-          <a href="#populares" class="btn-pink-primary">Elegir ramo</a>
+      <div class="fl-hero-slider" id="heroSlider">
+        <div class="fl-hero-track" id="heroTrack">
 
-          <div class="hero-dots" aria-label="Indicadores de diapositiva">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+          <!-- SLIDE 1 -->
+          <div class="fl-hero-banner slide-bg-1 is-active">
+            <div class="fl-hero-text">
+              <h1>
+                Regala emociones<br>
+                con flores frescas
+              </h1>
+              <p>
+                Ramos para cualquier ocasión<br>
+                con entrega a domicilio en toda la ciudad
+              </p>
+              <a href="#populares" class="btn-pink-primary">Elegir ramo</a>
+            </div>
+            <div class="fl-hero-image-slot">
+              <!-- [IMAGEN #1A - HERO SLIDE 1] Ruta: assets/flores/hero-ramo.png -->
+              <img src="assets/flores/hero-ramo.png" alt="Ramo principal" class="slot-img" onerror="this.style.display='none';">
+              <div class="slot-guide">
+                <span class="slot-badge">IMAGEN #1A • SLIDE 1</span>
+                <code>assets/flores/hero-ramo.png</code>
+                <small>Recomendado: 650 × 450 px (PNG transparente o JPG)</small>
+              </div>
+            </div>
           </div>
+
+          <!-- SLIDE 2 -->
+          <div class="fl-hero-banner slide-bg-2">
+            <div class="fl-hero-text">
+              <h1>
+                Colección exclusiva<br>
+                de peonías y rosas
+              </h1>
+              <p>
+                Diseños florales de autor creados<br>
+                con flores recién cortadas cada mañana
+              </p>
+              <a href="#populares" class="btn-pink-primary">Ver colección</a>
+            </div>
+            <div class="fl-hero-image-slot">
+              <!-- [IMAGEN #1B - HERO SLIDE 2] Ruta: assets/flores/hero-ramo-2.png -->
+              <img src="assets/flores/hero-ramo-2.png" alt="Colección de peonías y rosas" class="slot-img" onerror="this.style.display='none';">
+              <div class="slot-guide">
+                <span class="slot-badge">IMAGEN #1B • SLIDE 2</span>
+                <code>assets/flores/hero-ramo-2.png</code>
+                <small>Recomendado: 650 × 450 px (PNG transparente o JPG)</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 3 -->
+          <div class="fl-hero-banner slide-bg-3">
+            <div class="fl-hero-text">
+              <h1>
+                Flores en caja y<br>
+                detalles de lujo
+              </h1>
+              <p>
+                Sorprende con arreglos en sombrerera<br>
+                y tarjeta con dedicatoria gratis
+              </p>
+              <a href="#categorias" class="btn-pink-primary">Explorar cajas</a>
+            </div>
+            <div class="fl-hero-image-slot">
+              <!-- [IMAGEN #1C - HERO SLIDE 3] Ruta: assets/flores/hero-ramo-3.png -->
+              <img src="assets/flores/hero-ramo-3.png" alt="Flores en caja" class="slot-img" onerror="this.style.display='none';">
+              <div class="slot-guide">
+                <span class="slot-badge">IMAGEN #1C • SLIDE 3</span>
+                <code>assets/flores/hero-ramo-3.png</code>
+                <small>Recomendado: 650 × 450 px (PNG transparente o JPG)</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 4 -->
+          <div class="fl-hero-banner slide-bg-4">
+            <div class="fl-hero-text">
+              <h1>
+                Ramos de novia y<br>
+                eventos especiales
+              </h1>
+              <p>
+                Acompañamos tus momentos inolvidables<br>
+                con estilismo floral a medida
+              </p>
+              <a href="#contacto" class="btn-pink-primary">Cotizar ahora</a>
+            </div>
+            <div class="fl-hero-image-slot">
+              <!-- [IMAGEN #1D - HERO SLIDE 4] Ruta: assets/flores/hero-ramo-4.png -->
+              <img src="assets/flores/hero-ramo-4.png" alt="Ramos de novia y eventos" class="slot-img" onerror="this.style.display='none';">
+              <div class="slot-guide">
+                <span class="slot-badge">IMAGEN #1D • SLIDE 4</span>
+                <code>assets/flores/hero-ramo-4.png</code>
+                <small>Recomendado: 650 × 450 px (PNG transparente o JPG)</small>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <div class="fl-hero-image-slot">
-          <!-- ===============================================================
-               [IMAGEN #1 - BANNER HERO PRINCIPAL]
-               Coloca tu imagen en: assets/flores/hero-ramo.png
-               Tamaño recomendado: 650 x 450 px (PNG sin fondo o JPG)
-               =============================================================== -->
-          <img src="assets/flores/hero-ramo.png" alt="Ramo principal" class="slot-img" onerror="this.style.display='none';">
-          <div class="slot-guide">
-            <span class="slot-badge">IMAGEN #1 • HERO PRINCIPAL</span>
-            <code>assets/flores/hero-ramo.png</code>
-            <small>Recomendado: 650 × 450 px (PNG transparente o fondo rosa)</small>
-          </div>
+        <!-- Controles de flecha sutiles al pasar el mouse -->
+        <button type="button" class="hero-nav-btn hero-prev" onclick="moveHeroSlide(-1)" aria-label="Anterior diapositiva">‹</button>
+        <button type="button" class="hero-nav-btn hero-next" onclick="moveHeroSlide(1)" aria-label="Siguiente diapositiva">›</button>
+
+        <!-- Indicadores (Dots) interactivos -->
+        <div class="hero-dots" id="heroDots" aria-label="Indicadores de diapositiva">
+          <button type="button" class="dot active" onclick="goToHeroSlide(0)" aria-label="Ir a diapositiva 1"></button>
+          <button type="button" class="dot" onclick="goToHeroSlide(1)" aria-label="Ir a diapositiva 2"></button>
+          <button type="button" class="dot" onclick="goToHeroSlide(2)" aria-label="Ir a diapositiva 3"></button>
+          <button type="button" class="dot" onclick="goToHeroSlide(3)" aria-label="Ir a diapositiva 4"></button>
         </div>
       </div>
     </section>
@@ -570,6 +649,70 @@
       </div>
     </div>
   </footer>
+
+  <!-- =================================================================
+       SCRIPT DEL CARRUSEL AUTOMÁTICO DEL HERO
+       ================================================================= -->
+  <script>
+    (function () {
+      const slider = document.getElementById('heroSlider');
+      const track = document.getElementById('heroTrack');
+      const slides = track.querySelectorAll('.fl-hero-banner');
+      const dots = document.querySelectorAll('#heroDots .dot');
+      const totalSlides = slides.length;
+      let currentIndex = 0;
+      let autoSlideTimer = null;
+      const SLIDE_INTERVAL_MS = 4000;
+
+      function updateSlider() {
+        track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+        slides.forEach(function (slide, idx) {
+          slide.classList.toggle('is-active', idx === currentIndex);
+        });
+        dots.forEach(function (dot, idx) {
+          dot.classList.toggle('active', idx === currentIndex);
+        });
+      }
+
+      window.goToHeroSlide = function (index) {
+        currentIndex = (index + totalSlides) % totalSlides;
+        updateSlider();
+        restartAutoSlide();
+      };
+
+      window.moveHeroSlide = function (step) {
+        currentIndex = (currentIndex + step + totalSlides) % totalSlides;
+        updateSlider();
+        restartAutoSlide();
+      };
+
+      function startAutoSlide() {
+        stopAutoSlide();
+        autoSlideTimer = setInterval(function () {
+          currentIndex = (currentIndex + 1) % totalSlides;
+          updateSlider();
+        }, SLIDE_INTERVAL_MS);
+      }
+
+      function stopAutoSlide() {
+        if (autoSlideTimer) {
+          clearInterval(autoSlideTimer);
+          autoSlideTimer = null;
+        }
+      }
+
+      function restartAutoSlide() {
+        stopAutoSlide();
+        startAutoSlide();
+      }
+
+      // Pausar suavemente si el usuario pasa el cursor sobre el banner
+      slider.addEventListener('mouseenter', stopAutoSlide);
+      slider.addEventListener('mouseleave', startAutoSlide);
+
+      startAutoSlide();
+    })();
+  </script>
 
 </body>
 </html>

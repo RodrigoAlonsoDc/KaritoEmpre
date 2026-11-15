@@ -335,21 +335,58 @@ img {
 }
 
 /* ==========================================================================
-   3. BANNER HERO PRINCIPAL
+   3. BANNER HERO PRINCIPAL (CARRUSEL DESLIZANTE AUTOMÁTICO)
    ========================================================================== */
-.fl-hero-banner {
-  background: linear-gradient(120deg, #f5dce1 0%, #f7e4e8 100%);
+.fl-hero-slider {
+  position: relative;
   border-radius: 22px;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.fl-hero-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.fl-hero-banner {
+  min-width: 100%;
+  flex-shrink: 0;
   min-height: clamp(390px, calc(100vh - 205px), 520px);
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   align-items: center;
   overflow: hidden;
-  margin-bottom: 18px;
+}
+
+.slide-bg-1 {
+  background: linear-gradient(120deg, #f5dce1 0%, #f7e4e8 100%);
+}
+
+.slide-bg-2 {
+  background: linear-gradient(120deg, #f2d9e7 0%, #f8e5ef 100%);
+}
+
+.slide-bg-3 {
+  background: linear-gradient(120deg, #f6dfd9 0%, #faece6 100%);
+}
+
+.slide-bg-4 {
+  background: linear-gradient(120deg, #f0dce4 0%, #f5e8ee 100%);
 }
 
 .fl-hero-text {
-  padding: 48px 52px;
+  padding: 48px 52px 72px;
+  opacity: 0.4;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
+}
+
+.fl-hero-banner.is-active .fl-hero-text {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .fl-hero-text h1 {
@@ -381,23 +418,73 @@ img {
 
 .btn-pink-primary:hover {
   background-color: var(--fl-pink-hover);
+  transform: translateY(-2px);
 }
 
+/* Botones laterales de navegación del carrusel */
+.hero-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 83, 130, 0.25);
+  background-color: rgba(255, 255, 255, 0.82);
+  color: var(--fl-pink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.fl-hero-slider:hover .hero-nav-btn {
+  opacity: 1;
+}
+
+.hero-nav-btn:hover {
+  background-color: var(--fl-pink);
+  color: #ffffff;
+}
+
+.hero-prev {
+  left: 16px;
+}
+
+.hero-next {
+  right: 16px;
+}
+
+/* Indicadores inferiores animados */
 .hero-dots {
+  position: absolute;
+  bottom: 32px;
+  left: 52px;
+  z-index: 10;
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 34px;
 }
 
 .hero-dots .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: none;
   background-color: #ffffff;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.35s ease;
 }
 
 .hero-dots .dot.active {
+  width: 26px;
   background-color: var(--fl-pink);
 }
 
